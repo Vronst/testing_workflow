@@ -26,4 +26,5 @@ jobs:
     uses: Vronst/testing_workflow/.github/workflows/testing_workflow.yml@1.0.0
     with:
       python-version: '3.13'
+      pytest_flags: ''  # or could be '-m regression' or whatever
 ```
