@@ -8,6 +8,10 @@ on:
         required: false
         default: ''
         type: string
+      container_name:
+        description: 'Name to use with docker exec'
+        required: true
+        type: string
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,7 +28,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker exec paytrack uv run pytest ${{ inputs.pytest_flags }}
+          docker exec ${{ inputs.container_name }} uv run pytest ${{ inputs.pytest_flags }}
 
       - name: Stop and remove container
         run: docker compose down --volumes
