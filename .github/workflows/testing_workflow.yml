@@ -24,7 +24,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker exec -it paytrack uv run pytest ${{ inputs.pytest_flags }}
+          docker exec paytrack uv run pytest ${{ inputs.pytest_flags }}
 
       - name: Stop and remove container
         run: docker compose down --volumes
